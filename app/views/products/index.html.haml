@@ -2,6 +2,8 @@
 
 %p= link_to t('products.create'), new_product_path
 
+= render 'search'
+
 - if @products.any?
   = render 'table', products: @products
 - else

@@ -1,0 +1,6 @@
+.row
+  .col-md-5
+    = form_tag(products_path, method: 'get') do
+      = hidden_field_tag :page, params[:page]
+      = text_field_tag :name, params[:name]
+      = submit_tag t('products.search')

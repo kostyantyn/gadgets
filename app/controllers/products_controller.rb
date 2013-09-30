@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = current_user.products.includes(:pictures).page(params[:page]).per(20)
+    @products = current_user.products.search(params).includes(:pictures).page(params[:page]).per(20)
     respond_with(@products)
   end
 
