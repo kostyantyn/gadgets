@@ -2,3 +2,12 @@ en:
   navbar:
     products: Products
     logout: Logout
+  products:
+    title: Products
+    create: Create product
+    no_content: No products in your library
+    show: Show
+    edit: Edit
+    destroy: Destoy
+    confirm_destroy: Are you sure?)
+    new: New product

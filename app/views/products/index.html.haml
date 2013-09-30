@@ -1,1 +1,8 @@
-products
+%h1= t('products.title')
+
+%p= link_to t('products.create'), new_product_path
+
+- if @products.any?
+  = render 'table', products: @products
+- else
+  %p= t('products.create.no_content')

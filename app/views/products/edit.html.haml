@@ -1,0 +1,7 @@
+%h1= @product.name
+
+.row
+  .col-md-5
+    = simple_form_for(@product, url: product_path(@product)) do |f|
+      = render 'form_fields', f: f
+      = f.submit

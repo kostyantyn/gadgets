@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-
+    @products = current_user.products
+    respond_with(@products)
   end
 
   def show

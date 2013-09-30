@@ -1,0 +1,15 @@
+%table.table.table-bordered.table-stripped
+  %tr
+    %th= Product.human_attribute_name(:id)
+    %th= Product.human_attribute_name(:name)
+    %th
+
+  - products.each do |product|
+    %tr
+      %td= product.id
+      %td= product.name
+      %td
+        = link_to t('products.show'), product_path(product)
+        = link_to t('products.edit'), edit_product_path(product)
+        = link_to t('products.destroy'), product_path(product), method: 'delete', confirm: t('products.confirm_destroy')
+
