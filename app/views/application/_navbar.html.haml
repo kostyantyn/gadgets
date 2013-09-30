@@ -1,0 +1,6 @@
+%nav.navbar.navbar-default{role: 'navigation'}
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      %li= link_to t('navbar.products'), products_path
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to t('navbar.logout'), destroy_user_session_path, method: 'delete'

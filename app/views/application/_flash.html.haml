@@ -1,0 +1,3 @@
+- flash.each do |type, message|
+  - type = :success if type == :notice
+  .alert{class: "alert-#{type}"}= message
