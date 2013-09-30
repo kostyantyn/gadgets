@@ -2,7 +2,8 @@
 
 %p= link_to t('products.create'), new_product_path
 
-= render 'search'
+- if current_user.products.any?
+  = render 'search'
 
 - if @products.any?
   - if params[:view] == 'grid'
