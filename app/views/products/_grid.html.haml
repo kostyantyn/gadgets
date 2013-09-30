@@ -1,0 +1,12 @@
+- products.each_slice(4).each do |product_group|
+  .row
+    - product_group.each do |product|
+      .col-md-3
+        %p= image_tag(product.pictures.first.image.small.url) if product.pictures.any?
+        %p= product.name
+        %p
+          = link_to t('products.show'), product_path(product)
+          = link_to t('products.edit'), edit_product_path(product)
+          = link_to t('products.destroy'), product_path(product), method: 'delete', data: {confirm: t('products.confirm_destroy')}
+
+= paginate products

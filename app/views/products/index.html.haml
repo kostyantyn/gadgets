@@ -5,6 +5,11 @@
 = render 'search'
 
 - if @products.any?
-  = render 'table', products: @products
+  - if params[:view] == 'grid'
+    %p= link_to t('products.table_view'), params.merge(view: 'table')
+    = render 'grid', products: @products
+  - else
+    %p= link_to t('products.grid_view'), params.merge(view: 'grid')
+    = render 'table', products: @products
 - else
-  %p= t('products.create.no_content')
+  %p= t('products.no_content')
