@@ -66,7 +66,7 @@ describe ProductsController do
     it 'users should be able to create theirs product' do
       sign_in current_user
       lambda do
-        post :create, products: {name: 'my new product'}
+        post :create, product: {name: 'my new product'}
       end.should change(Product, :count).by(1)
     end
   end
