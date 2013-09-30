@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = current_user.products
+    @products = current_user.products.includes(:pictures).page(params[:page]).per(20)
     respond_with(@products)
   end
 
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(:name, pictures_attributes: [:id, :image, :_destroy])
     end
 
 end

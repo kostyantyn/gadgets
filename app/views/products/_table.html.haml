@@ -1,15 +1,18 @@
 %table.table.table-bordered.table-stripped
   %tr
+    %th= Picture.human_attribute_name(:image)
     %th= Product.human_attribute_name(:id)
     %th= Product.human_attribute_name(:name)
     %th
 
   - products.each do |product|
     %tr
+      %td= image_tag(product.pictures.first.image.thumb.url) if product.pictures.any?
       %td= product.id
       %td= product.name
       %td
         = link_to t('products.show'), product_path(product)
         = link_to t('products.edit'), edit_product_path(product)
-        = link_to t('products.destroy'), product_path(product), method: 'delete', confirm: t('products.confirm_destroy')
+        = link_to t('products.destroy'), product_path(product), method: 'delete', data: {confirm: t('products.confirm_destroy')}
 
+= paginate products

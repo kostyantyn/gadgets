@@ -9,6 +9,9 @@ gem 'haml-rails'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: 'master'
 gem 'devise'
 gem 'simple_form'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'rmagick'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

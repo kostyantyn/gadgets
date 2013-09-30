@@ -1,1 +1,4 @@
 %h1= @product.name
+
+- @product.pictures.each do |picture|
+  %p= image_tag(picture.image.small.url)

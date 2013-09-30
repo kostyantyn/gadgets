@@ -1,1 +1,11 @@
 = f.input :name, input_html: { class: 'form-control' }
+
+- 2.times { f.object.pictures.build }
+= label_tag t('products.pictures')
+= f.simple_fields_for :pictures do |form|
+  = form.input :id, as: :hidden
+  - if form.object.persisted?
+    = image_tag form.object.image.thumb.url
+    = form.input :_destroy, as: :boolean
+  - else
+    = form.input :image, as: :file
